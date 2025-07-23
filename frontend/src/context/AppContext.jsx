@@ -36,7 +36,7 @@ const fetchBlogs = async () => {
       setToken(token);
       axios.defaults.headers.common['Authorization'] = `${token}`;
     } else {
-      navigate('/admin');
+      navigate('/');
     }
   }, []);
 

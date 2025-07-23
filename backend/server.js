@@ -21,6 +21,9 @@ import blogRouter from './routes/blogRoutes.js';
 // routes
 app.use('/api/admin', adminRouter);
 app.use('/api/blogs', blogRouter);
+app.get('/', (req, res) => {
+  res.send('Welcome to BlogFusionAI API');
+});
 
 
 
