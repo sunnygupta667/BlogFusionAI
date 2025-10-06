@@ -2,9 +2,9 @@ import React, {useState,useEffect, createContext } from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'; 
 import  toast  from 'react-hot-toast';
-import { use } from 'react';
 
-axios.defaults.baseURL = import.meta.env.VITE_BASE_URL || 'blog-fusion-ai.vercel.app';
+
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 const AppContext = createContext();
 
 

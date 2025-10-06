@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { MdEmail, MdLockOutline } from 'react-icons/md';
 import { FaUserShield } from 'react-icons/fa';
 import { useAppContext } from '../../context/AppContext';
@@ -6,8 +6,8 @@ import toast from 'react-hot-toast';
 const Login = () => {
 
   // State variables for email and password
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const {axios , setToken} = useAppContext();
 
 
@@ -16,13 +16,17 @@ const Login = () => {
     e.preventDefault();
     try {
       const {data} = await axios.post('/api/admin/login', { email, password });
+      console.log(data);
       if (data.success) {
         setToken(data.token);
         localStorage.setItem('token', data.token);
 
         axios.defaults.headers.common['Authorization'] =  data.token;
         toast.success("Login successful");
+
+
       } else {
+        console.log(data.message);
         toast.error(error.message);
       }
     } catch (error) {
