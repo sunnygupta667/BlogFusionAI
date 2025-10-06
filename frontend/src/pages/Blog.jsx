@@ -113,7 +113,7 @@ const addComment = async (e) => {
           {data.subTitle}
         </h2>
         <p className="inline-block py-1 px-4 rounded-full border border-purple-600/30 bg-purple-100/50 text-sm text-purple-700 font-medium">
-          Michael Brown
+          Sunny Gupta
         </p>
       </div>
 

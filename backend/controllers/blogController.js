@@ -9,7 +9,7 @@ import main from '../config/gemini.js'; // Import the Gemini AI function
   export const addBlog = async (req, res) => {
     try {
       const { title, subTitle, description, category, isPublished } = JSON.parse(req.body.blog);
-      const newBlog = new Blog({ title, subTitle, description, category, isPublished });
+      // const newBlog = new Blog({ title, subTitle, description, category, isPublished });
       const imageFile = req.file;
 
       // check if all field are present
@@ -84,7 +84,7 @@ export const deleteBlog = async (req, res) => {
 // Toggle publish
 export const togglePublish = async (req, res) => {
   try {
-    const { id } = req. body;
+    const { id } = req.body;
     const blog = await Blog.findById(id);
     blog.isPublished = !blog.isPublished;
     await blog.save();
@@ -94,6 +94,7 @@ export const togglePublish = async (req, res) => {
   }
 };
 
+// Function to update a blog
 export const updateBlog = async (req, res) => {
   try {
     if (!req.body.blog) {
@@ -146,7 +147,7 @@ export const updateBlog = async (req, res) => {
 };
 
 
-
+// function to add a comment to a blog
 export const addComment = async (req, res) => {
   try {
     const { blog, name, content } = req.body;
@@ -180,6 +181,8 @@ export const getBlogComments = async (req, res) => {
   }
 };
 
+
+// Function to generate blog content using Gemini AI
 export const generateContent = async (req, res) => {
   try {
     const { prompt } = req.body;

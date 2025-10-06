@@ -1,13 +1,6 @@
-// import multer from 'multer';
-// import path from 'path';
 
-// // Set up storage engine
-// const upload = multer({storage: multer.diskStorage({})});
-
-// export default upload;
- 
 import multer from "multer";
-import path from "path";
+// import path from "path";
 import fs from "fs";
 
 // Ensure uploads folder exists
